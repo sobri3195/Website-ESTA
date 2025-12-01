@@ -41,45 +41,45 @@ const BusinessUnits = () => {
   ]
 
   return (
-    <section id="unit-bisnis" className="relative py-20 md:py-32 overflow-hidden">
+    <section id="unit-bisnis" className="relative py-16 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
       
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-esta-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-esta-600/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-0 w-64 h-64 md:w-96 md:h-96 bg-esta-500/10 rounded-full blur-3xl animate-floatSlow"></div>
+      <div className="absolute top-1/3 right-0 w-64 h-64 md:w-96 md:h-96 bg-esta-600/10 rounded-full blur-3xl animate-floatSlow" style={{ animationDelay: '2s' }}></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 animate-fadeInUp">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-esta-400 to-esta-600 bg-clip-text text-transparent">
+        <div className="text-center mb-12 md:mb-16 animate-fadeInUp">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-esta-400 to-esta-600 bg-clip-text text-transparent">
             Unit Bisnis Kami
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-esta-400 to-esta-600 mx-auto mb-8"></div>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+          <div className="w-16 md:w-20 h-1 bg-gradient-to-r from-esta-400 to-esta-600 mx-auto mb-4 md:mb-8 animate-scaleIn" style={{ animationDelay: '0.2s' }}></div>
+          <p className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto px-4 sm:px-0">
             Portofolio bisnis yang beragam dan terintegrasi untuk melayani berbagai kebutuhan pasar
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
           {units.map((unit, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-8 hover:scale-105 hover:bg-white/10 transition-all duration-300 group cursor-pointer animate-fadeInUp"
+              className="glass-card rounded-xl md:rounded-2xl p-6 md:p-8 hover:scale-[1.03] hover:bg-white/10 hover:shadow-xl hover:shadow-esta-500/10 transition-all duration-300 group cursor-pointer animate-scaleIn"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${unit.color} bg-opacity-20 text-white mb-6 group-hover:scale-110 transition-transform`}>
+              <div className={`inline-flex p-3 md:p-4 rounded-xl bg-gradient-to-br ${unit.color} bg-opacity-20 text-white mb-4 md:mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
                 {unit.icon}
               </div>
               
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-esta-400 transition-colors">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 group-hover:text-esta-400 transition-colors">
                 {unit.title}
               </h3>
               
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-sm md:text-base text-slate-400 leading-relaxed">
                 {unit.description}
               </p>
 
-              <div className="mt-6 flex items-center text-esta-400 font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="text-sm">Pelajari Lebih Lanjut</span>
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="mt-4 md:mt-6 flex items-center text-esta-400 font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <span className="text-xs md:text-sm">Pelajari Lebih Lanjut</span>
+                <svg className="w-3 h-3 md:w-4 md:h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
