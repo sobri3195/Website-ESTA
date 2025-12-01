@@ -1,0 +1,153 @@
+import { Instagram, Linkedin, Facebook, Twitter, Mail, Phone, MapPin } from 'lucide-react'
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear()
+
+  const socialLinks = [
+    { icon: <Instagram className="w-5 h-5" />, href: '#', label: 'Instagram' },
+    { icon: <Linkedin className="w-5 h-5" />, href: '#', label: 'LinkedIn' },
+    { icon: <Facebook className="w-5 h-5" />, href: '#', label: 'Facebook' },
+    { icon: <Twitter className="w-5 h-5" />, href: '#', label: 'Twitter' }
+  ]
+
+  const quickLinks = [
+    { label: 'Beranda', href: '#beranda' },
+    { label: 'Tentang', href: '#tentang' },
+    { label: 'Unit Bisnis', href: '#unit-bisnis' },
+    { label: 'Nilai', href: '#nilai' },
+    { label: 'Klien & Mitra', href: '#klien' },
+    { label: 'Kontak', href: '#kontak' }
+  ]
+
+  const businessUnits = [
+    'Medis & Healthcare',
+    'Pendidikan & Training',
+    'Fashion & Apparel',
+    'Wedding & Event',
+    'Creative & Interior Design',
+    'Technology & Digital'
+  ]
+
+  const handleLinkClick = (href) => {
+    const element = document.querySelector(href)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <footer className="relative bg-slate-950 border-t border-white/10">
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-950"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="lg:col-span-1">
+            <h3 className="text-3xl font-bold bg-gradient-to-r from-esta-400 to-esta-600 bg-clip-text text-transparent mb-4">
+              ESTA
+            </h3>
+            <p className="text-slate-400 mb-6 leading-relaxed">
+              PT. Bahagia Berkat Semesta - Holding company modern yang menghubungkan berbagai sektor bisnis untuk menciptakan dampak berkelanjutan.
+            </p>
+            
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center gap-3 text-slate-400 hover:text-esta-400 transition-colors">
+                <MapPin className="w-4 h-4" />
+                <span className="text-sm">Jakarta, Indonesia</span>
+              </div>
+              <div className="flex items-center gap-3 text-slate-400 hover:text-esta-400 transition-colors">
+                <Phone className="w-4 h-4" />
+                <span className="text-sm">+62 21 1234 5678</span>
+              </div>
+              <div className="flex items-center gap-3 text-slate-400 hover:text-esta-400 transition-colors">
+                <Mail className="w-4 h-4" />
+                <span className="text-sm">info@esta.co.id</span>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="p-3 rounded-lg glass-card hover:bg-esta-500/20 text-slate-400 hover:text-esta-400 transition-all duration-300 hover:scale-110"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-4">Navigasi</h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link, index) => (
+                <li key={index}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => { e.preventDefault(); handleLinkClick(link.href); }}
+                    className="text-slate-400 hover:text-esta-400 transition-colors duration-200 flex items-center gap-2 group"
+                  >
+                    <span className="w-0 h-0.5 bg-esta-400 group-hover:w-4 transition-all duration-200"></span>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2">
+            <h4 className="text-lg font-semibold text-white mb-4">Unit Bisnis</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {businessUnits.map((unit, index) => (
+                <div
+                  key={index}
+                  className="text-slate-400 hover:text-esta-400 transition-colors duration-200 flex items-center gap-2 group"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-esta-500 group-hover:scale-150 transition-transform"></div>
+                  <span className="text-sm">{unit}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 glass-card rounded-xl p-6">
+              <h5 className="text-white font-semibold mb-3">Newsletter</h5>
+              <p className="text-sm text-slate-400 mb-4">
+                Dapatkan update terbaru tentang layanan dan kegiatan kami
+              </p>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  placeholder="Email Anda"
+                  className="flex-1 px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-esta-500 text-sm"
+                />
+                <button className="px-4 py-2 bg-gradient-to-r from-esta-500 to-esta-600 hover:from-esta-600 hover:to-esta-700 rounded-lg text-white font-medium transition-all duration-300 hover:scale-105 text-sm">
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 py-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-slate-400 text-sm text-center md:text-left">
+              © {currentYear} ESTA — PT. Bahagia Berkat Semesta. All rights reserved.
+            </p>
+            
+            <div className="flex gap-6 text-sm">
+              <a href="#" className="text-slate-400 hover:text-esta-400 transition-colors">
+                Kebijakan Privasi
+              </a>
+              <a href="#" className="text-slate-400 hover:text-esta-400 transition-colors">
+                Syarat & Ketentuan
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+export default Footer
